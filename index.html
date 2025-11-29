@@ -34,13 +34,120 @@
 
         <!-- Skills / 技能展示 -->
         <section id="skills" aria-labelledby="skills-title">
+            <style>
+                /* Skills progress bar styles (scoped to this section) */
+                #skills { max-width: 800px; margin: 0.5rem auto 2rem; padding: 0 1rem; }
+                #skills-title { margin-bottom: 0.75rem; }
+
+                .skills-wrap { display: grid; gap: 0.9rem; }
+                .skill {
+                    display: block;
+                }
+                .skill-label {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-weight: 600;
+                    font-size: 0.95rem;
+                    margin-bottom: 0.35rem;
+                }
+
+                .progress {
+                    background: #eef2f7;
+                    border-radius: 999px;
+                    height: 14px;
+                    overflow: hidden;
+                    box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
+                }
+
+                .progress-bar {
+                    height: 100%;
+                    width: 0;
+                    transition: width 900ms cubic-bezier(.2,.9,.3,1);
+                    background: linear-gradient(90deg, #4f46e5 0%, #06b6d4 70%);
+                    border-radius: 999px 0 0 999px;
+                }
+
+                /* subtle stripe overlay for texture */
+                .progress-bar::after{
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    background-image: linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.06) 75%, transparent 75%, transparent);
+                    background-size: 14px 14px;
+                    opacity: 0.35;
+                }
+
+                /* Respect user preference for reduced motion */
+                @media (prefers-reduced-motion: reduce) {
+                    .progress-bar { transition: none; }
+                }
+            </style>
+
             <h2 id="skills-title">技能</h2>
-            <ul>
-                <li>程式語言：例如 JavaScript、Python、TypeScript</li>
-                <li>前端：HTML、CSS、React（或其他框架）</li>
-                <li>後端 / 工具：Node.js、Express、Git</li>
-                <li>其他：單元測試、CI/CD、雲端部署</li>
-            </ul>
+
+            <div class="skills-wrap" aria-hidden="false">
+                <div class="skill">
+                    <div class="skill-label">
+                        <span>JavaScript</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" aria-label="JavaScript 熟練度 90%">
+                        <div class="progress-bar" style="width: 90%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-label">
+                        <span>TypeScript</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-label="TypeScript 熟練度 80%">
+                        <div class="progress-bar" style="width: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-label">
+                        <span>Python</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-label="Python 熟練度 75%">
+                        <div class="progress-bar" style="width: 75%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-label">
+                        <span>HTML / CSS</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95" aria-label="HTML 與 CSS 熟練度 95%">
+                        <div class="progress-bar" style="width: 95%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-label">
+                        <span>React</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" aria-label="React 熟練度 85%">
+                        <div class="progress-bar" style="width: 85%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-label">
+                        <span>Node.js / Git / CI &amp; Cloud</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-label="Node.js, Git, CI 與雲端部署 綜合熟練度 80%">
+                        <div class="progress-bar" style="width: 80%;"></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Experience / 經歷時間軸 -->
