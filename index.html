@@ -1,0 +1,134 @@
+// ...existing code...
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人簡歷</title>
+</head>
+<body>
+    <!-- Header / 導覽列 -->
+    <header>
+        <div class="container">
+            <h1 id="site-title">你的名字</h1>
+            <nav aria-label="主導覽">
+                <ul>
+                    <li><a href="#about">關於我</a></li>
+                    <li><a href="#skills">技能</a></li>
+                    <li><a href="#experience">經歷</a></li>
+                    <li><a href="#portfolio">作品集</a></li>
+                    <li><a href="#contact">聯絡</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- About Me / 關於我 -->
+        <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">關於我</h2>
+            <p>
+                簡短自我介紹：職稱、專長、目前所在城市以及一兩句描述你的職業目標或工作風格。
+            </p>
+        </section>
+
+        <!-- Skills / 技能展示 -->
+        <section id="skills" aria-labelledby="skills-title">
+            <h2 id="skills-title">技能</h2>
+            <ul>
+                <li>程式語言：例如 JavaScript、Python、TypeScript</li>
+                <li>前端：HTML、CSS、React（或其他框架）</li>
+                <li>後端 / 工具：Node.js、Express、Git</li>
+                <li>其他：單元測試、CI/CD、雲端部署</li>
+            </ul>
+        </section>
+
+        <!-- Experience / 經歷時間軸 -->
+        <section id="experience" aria-labelledby="experience-title">
+            <h2 id="experience-title">經歷</h2>
+            <ul class="timeline" aria-label="工作經歷時間軸">
+                <li>
+                    <time datetime="2023-06">2023/06 - 現在</time>
+                    <h3>公司名稱 — 職稱</h3>
+                    <p>簡短描述職務內容、主要成就或負責的專案。</p>
+                </li>
+                <li>
+                    <time datetime="2020-01">2020/01 - 2023/05</time>
+                    <h3>公司名稱 — 職稱</h3>
+                    <p>簡短描述職務內容、主要成就或負責的專案。</p>
+                </li>
+                <li>
+                    <time datetime="2018-07">2018/07 - 2019/12</time>
+                    <h3>公司 / 實習 — 職稱</h3>
+                    <p>簡短描述職務內容或學到的重點技能。</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Portfolio / 作品集 -->
+        <section id="portfolio" aria-labelledby="portfolio-title">
+            <h2 id="portfolio-title">作品集</h2>
+            <div class="portfolio-grid" role="list">
+                <!-- Card 1 -->
+                <article class="card" role="listitem" aria-labelledby="proj1-title">
+                    <img src="#" alt="作品 1 圖片示意" width="320" height="180">
+                    <h3 id="proj1-title">專案名稱 1</h3>
+                    <p>專案簡介：目的、使用技術、你在其中的角色。</p>
+                    <p><a href="#" target="_blank" rel="noopener">查看專案</a></p>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card" role="listitem" aria-labelledby="proj2-title">
+                    <img src="#" alt="作品 2 圖片示意" width="320" height="180">
+                    <h3 id="proj2-title">專案名稱 2</h3>
+                    <p>專案簡介：目的、使用技術、你在其中的角色。</p>
+                    <p><a href="#" target="_blank" rel="noopener">查看專案</a></p>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card" role="listitem" aria-labelledby="proj3-title">
+                    <img src="#" alt="作品 3 圖片示意" width="320" height="180">
+                    <h3 id="proj3-title">專案名稱 3</h3>
+                    <p>專案簡介：目的、使用技術、你在其中的角色。</p>
+                    <p><a href="#" target="_blank" rel="noopener">查看專案</a></p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact / 聯絡方式 -->
+        <section id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title">聯絡方式</h2>
+
+            <address>
+                <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+                <p>電話: <a href="tel:+886912345678">+886 912 345 678</a></p>
+                <p>LinkedIn / GitHub: <a href="#" target="_blank" rel="noopener">YourProfile</a></p>
+            </address>
+
+            <h3>聯絡表單</h3>
+            <form action="#" method="post" aria-label="聯絡表單">
+                <div>
+                    <label for="name">姓名</label>
+                    <input id="name" name="name" type="text" required>
+                </div>
+                <div>
+                    <label for="email">電子郵件</label>
+                    <input id="email" name="email" type="email" required>
+                </div>
+                <div>
+                    <label for="message">訊息</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div>
+                    <button type="submit">送出</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year">2025</span> 你的名字。保留所有權利。</p>
+    </footer>
+</body>
+</html>
+// ...existing code...
