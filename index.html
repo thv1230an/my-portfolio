@@ -1,16 +1,84 @@
-// ...existing code...
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>個人簡歷</title>
+    <style>
+    /* 1. 讓整個網頁置中，並設定好看的字體 */
+    body {
+        max-width: 800px;        /* 限制最大寬度，閱讀起來比較舒服 */
+        margin: 0 auto;          /* 關鍵！讓整個區塊左右自動置中 */
+        text-align: center;      /*讓所有文字內容置中 */
+        padding: 40px 20px;      /* 上下左右留一點白邊 */
+        font-family: "Microsoft JhengHei", "Heiti TC", sans-serif; /* 使用微軟正黑體 */
+        line-height: 1.6;        /* 增加行高，不要擠在一起 */
+        color: #0a0232; 
+        background-color: #f4c2dc;            /* 字體顏色不要全黑，深灰色比較有質感 */
+    }
+
+    /* 2. 針對「技能標籤雲」的特別置中 */
+    #skills ul {
+        display: flex;
+        flex-wrap: wrap;         /* 超出寬度自動換行 */
+        justify-content: center; /* 讓標籤們在中間集合 */
+        padding: 0;
+        list-style: none;        /* 移除預設的黑點 */
+        gap: 10px;               /* 標籤之間的間距 */
+    }
+
+    /* 3. 讓圖片有點圓角，看起來比較現代 */
+    img {
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 加一點點陰影 */
+    }
+
+    /* 4. 讓每個區塊之間有點距離 */
+    section {
+        margin-bottom: 40px;
+    }
+    /* 針對導覽列的特別設定 */
+    nav ul {
+        list-style: none;  /* ✨ 關鍵！這行會把那五個醜醜的黑點拿掉 */
+        padding: 0;        /* 移除預設的縮排，讓文字完全置中 */
+        margin-bottom: 30px; /* 調整導覽列跟下方「關於我」的距離 */
+    }
+
+    /* 讓那五個連結變更漂亮 */
+    nav ul li {
+        display: inline-block; /* ✨ 變魔術！這行會讓原本直排的清單變成「橫排」 */
+        margin: 0 15px;        /* 讓選項之間保持一點距離，不要擠在一起 */
+    }
+
+    nav ul li a {
+        text-decoration: none; /* 拿掉連結下方的底線 */
+        font-weight: bold;     /* 字體加粗 */
+        font-size: 1.1em;      /* 字體稍微大一點點 */
+        color: #333;           /* 連結顏色改深灰色 (比較有質感) */
+    }
+    
+    /* 滑鼠移過去變色 */
+    nav ul li a:hover {
+        color: #0056b3;        /* 滑鼠移過去變成藍色 */
+    }
+    /* 針對大頭照的特別設定 */
+    .profile-pic {
+        width: 150px;           /* 設定寬度 */
+        height: 150px;          /* 設定高度 (跟寬度一樣才會是正圓) */
+        border-radius: 50%;     /* ✨ 關鍵！這行會把方形照片變成圓形 */
+        object-fit: cover;      /* 確保照片裁切時不會變形 */
+        border: 4px solid white;/* 加一個白色邊框，更有質感 */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 加一點陰影 */
+        margin-bottom: 15px;    /* 讓照片跟下面的名字有點距離 */
+    }
+</style>
 </head>
 <body>
     <!-- Header / 導覽列 -->
     <header>
         <div class="container">
-            <h1 id="site-title">你的名字</h1>
+            <img src="me.jpg" alt="胡馨文的大頭照" class="profile-pic">
+            <h1 id="site-title">胡馨文</h1>
             <nav aria-label="主導覽">
                 <ul>
                     <li><a href="#about">關於我</a></li>
@@ -28,27 +96,19 @@
         <section id="about" aria-labelledby="about-title">
             <h2 id="about-title">關於我</h2>
             <p>
-                簡短自我介紹：職稱、專長、目前所在城市以及一兩句描述你的職業目標或工作風格。
+                醫資二413570141胡馨文。
             </p>
         </section>
 
         <!-- Skills / 技能展示 -->
         <section id="skills" aria-labelledby="skills-title">
             <h2 id="skills-title">技能</h2>
-            <div role="list" style="display:flex;flex-wrap:wrap;gap:12px;padding:16px 0;align-items:center;justify-content:flex-start;">
-            <span role="listitem" aria-label="JavaScript" style="background:#FF6B6B;color:#fff;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">JavaScript</span>
-            <span role="listitem" aria-label="TypeScript" style="background:#4D96FF;color:#fff;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">TypeScript</span>
-            <span role="listitem" aria-label="Python" style="background:#FFD166;color:#1b1b1b;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">Python</span>
-            <span role="listitem" aria-label="HTML" style="background:#E34F26;color:#fff;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">HTML</span>
-            <span role="listitem" aria-label="CSS" style="background:#2965f1;color:#fff;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">CSS</span>
-            <span role="listitem" aria-label="React" style="background:#61dafb;color:#052f3f;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">React</span>
-            <span role="listitem" aria-label="Vue" style="background:#41B883;color:#fff;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">Vue</span>
-            <span role="listitem" aria-label="Node.js" style="background:#3C873A;color:#fff;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">Node.js</span>
-            <span role="listitem" aria-label="Express" style="background:#9B59B6;color:#fff;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">Express</span>
-            <span role="listitem" aria-label="Git" style="background:#F1502F;color:#fff;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">Git</span>
-            <span role="listitem" aria-label="單元測試" style="background:#00C2A8;color:#053236;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">單元測試</span>
-            <span role="listitem" aria-label="CI/CD" style="background:#FFB400;color:#2b1700;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">CI/CD</span>
-            <span role="listitem" aria-label="雲端部署" style="background:#6C5CE7;color:#fff;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">雲端部署</span>
+            <div role="list" style="display:flex;flex-wrap:wrap;gap:12px;padding:16px 0;align-items:center;justify-content:center;">
+              <span role="listitem" aria-label="跳舞" style="background:#dce3f6;color:#1b1b1b;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">跳舞</span>
+              <span role="listitem" aria-label="畫畫" style="background:#cbe9ca;color:#1b1b1b;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">畫畫</span>
+              <span role="listitem" aria-label="Word" style="background:#f5e3b9;color:#1b1b1b;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">Word</span>
+              <span role="listitem" aria-label="Excel" style="background:#edbaab;color:#1b1b1b;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">Excel</span>
+              <span role="listitem" aria-label="程式設計" style="background:#c6c0f4;color:#1b1b1b;padding:8px 14px;border-radius:999px;font-weight:600;font-size:0.95rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">程式設計</span>
             </div>
         </section>
 
@@ -57,19 +117,21 @@
             <h2 id="experience-title">經歷</h2>
             <ul class="timeline" aria-label="工作經歷時間軸">
                 <li>
-                    <time datetime="2023-06">2023/06 - 現在</time>
-                    <h3>公司名稱 — 職稱</h3>
-                    <p>簡短描述職務內容、主要成就或負責的專案。</p>
+                    <time datetime="2024-09">2024/09 - 現在</time>
+                    <h3>輔仁大學醫學資訊與應用創新學士學位學程</h3>
+                    <p>學習與程式相關的多元課程</p>
+                    <p>擔任系學會公關</p>
                 </li>
                 <li>
-                    <time datetime="2020-01">2020/01 - 2023/05</time>
-                    <h3>公司名稱 — 職稱</h3>
-                    <p>簡短描述職務內容、主要成就或負責的專案。</p>
+                    <time datetime="2021-09">2021/09 - 2024/06</time>
+                    <h3>新莊高中</h3>
+                    <p>完成高中學業，培養基礎知識與技能</p>   
+                    <p>擔任社團教學長</p>
                 </li>
                 <li>
-                    <time datetime="2018-07">2018/07 - 2019/12</time>
-                    <h3>公司 / 實習 — 職稱</h3>
-                    <p>簡短描述職務內容或學到的重點技能。</p>
+                    <time datetime="2018-09">2018/09 - 2021/06</time>
+                    <h3>中山國中</h3>
+                    <p>參與校內外活動，提升團隊合作與領導能力</p>
                 </li>
             </ul>
         </section>
@@ -80,26 +142,38 @@
             <div class="portfolio-grid" role="list">
                 <!-- Card 1 -->
                 <article class="card" role="listitem" aria-labelledby="proj1-title">
-                    <img src="#" alt="作品 1 圖片示意" width="320" height="180">
-                    <h3 id="proj1-title">專案名稱 1</h3>
-                    <p>專案簡介：目的、使用技術、你在其中的角色。</p>
-                    <p><a href="#" target="_blank" rel="noopener">查看專案</a></p>
+                    <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="計算機專案預覽" width="320" height="180">
+                    <h3 id="proj1-title">線上計算機 (Calculator)</h3>
+                    <p>這是我練習 JavaScript DOM 操作的第一個專案，支援基本的加減乘除運算功能，並實作了按鈕點擊事件。</p>
+                    <p>
+                      <a href="https://github.com/thv1230an/calculator-app" target="_blank" rel="noopener">
+                       查看程式碼
+                      </a>
+                    </p>
                 </article>
 
                 <!-- Card 2 -->
                 <article class="card" role="listitem" aria-labelledby="proj2-title">
-                    <img src="#" alt="作品 2 圖片示意" width="320" height="180">
-                    <h3 id="proj2-title">專案名稱 2</h3>
-                    <p>專案簡介：目的、使用技術、你在其中的角色。</p>
-                    <p><a href="#" target="_blank" rel="noopener">查看專案</a></p>
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="電子病歷系統預覽" width="320" height="180">
+                    <h3 id="proj2-title">電子病歷管理系統 (EMR)</h3>
+                    <p>使用 Visual Studio (.NET) 開發的 Web 應用程式，串接 SQL 資料庫，可進行病患資料的新增、查詢與管理功能。</p>
+                    <p>
+                      <a href="#" target="_blank" rel="noopener">
+                        查看程式碼 (尚未上傳)
+                      </a>
+                    </p>
                 </article>
 
                 <!-- Card 3 -->
                 <article class="card" role="listitem" aria-labelledby="proj3-title">
-                    <img src="#" alt="作品 3 圖片示意" width="320" height="180">
-                    <h3 id="proj3-title">專案名稱 3</h3>
-                    <p>專案簡介：目的、使用技術、你在其中的角色。</p>
-                    <p><a href="#" target="_blank" rel="noopener">查看專案</a></p>
+                   <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Android App 作品預覽" width="320" height="180">   
+                   <h3 id="proj3-title">Android BMI 健康檢測 App</h3>
+                   <p>使用 Android Studio (Java) 開發的原生手機應用程式。實作了介面佈局 (XML)、事件監聽與數值運算邏輯。</p>
+                   <p>
+                     <a href="#" target="_blank" rel="noopener">
+                       查看程式碼 (尚未上傳)
+                     </a>
+                    </p>
                 </article>
             </div>
         </section>
@@ -109,7 +183,7 @@
             <h2 id="contact-title">聯絡方式</h2>
 
             <address>
-                <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+                <p>Email: <a href="mailto:Shirley94wen@gamil.com">Shirley94wen@gamil.com</a></p>
                 <p>電話: <a href="tel:+886912345678">+886 912 345 678</a></p>
                 <p>LinkedIn / GitHub: <a href="#" target="_blank" rel="noopener">YourProfile</a></p>
             </address>
@@ -136,8 +210,7 @@
     </main>
 
     <footer>
-        <p>&copy; <span id="year">2025</span> 你的名字。保留所有權利。</p>
+        <p>&copy; <span id="year">2025</span> 胡馨文。保留所有權利。</p>
     </footer>
 </body>
 </html>
-// ...existing code...
